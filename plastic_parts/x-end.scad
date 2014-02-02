@@ -64,7 +64,7 @@ module x_end_base(vfillet=[3, 3, 3, 3], thru=true, len=40, offset=0){
                 //rotate([0, 0, 0]) translate([0, -9.5, 0]) 
                 translate([z_delta, 0, 0]) render(convexity = 5) linear(bushing_z, bearing_height);
                 // Nut trap
-                translate([-2, 18, 5]) cube_fillet([20, 14, 10], center = true, vertical=[8, 0, 0, 5]);
+                translate([-2, 18, 5]) cube_fillet([23, 16, 10], center = true, vertical=[8, 0, 0, 5]);
                 //}
             }
         }
@@ -87,9 +87,9 @@ module x_end_base(vfillet=[3, 3, 3, 3], thru=true, len=40, offset=0){
         translate([0, 0, 5 - bushing_xy[0]]) {  // m5 nut insert
             translate([0, 17, 0]) rotate([0, 0, 10]){
                 //rod
-                translate([0, 0, -1]) cylinder(h=(4.1 / 2 + 5), r=3, $fn=32);
+                translate([0, 0, -1]) cylinder(h=(4.1 / 2 + 5), r=6, $fn=32);
                 //nut
-                translate([0, 0, 9]) cylinder(r=4.6, h=14.1, center = true, $fn=6);
+                translate([0, 0, 9]) cylinder(r=9.8, h=15.2, center = true, $fn=6);
 
             }
         }
@@ -118,7 +118,7 @@ module x_tensioner(len=65, idler_height=max(idler_bearing[0], 16)) {
 
 
 translate([-40, 0, 4 - bushing_xy[0]]) x_tensioner();
-translate([0, -80, 0]) mirror([1, 0, 0]) x_end_idler(thru=true);
+!translate([0, -80, 0]) mirror([1, 0, 0]) x_end_idler(thru=true);
 translate([-50, 0, 0]) mirror([1, 0, 0]) translate([-50, 0, 0])
     x_end_motor();
 
